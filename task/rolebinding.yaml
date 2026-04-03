@@ -1,0 +1,29 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: group-rolebind-dev
+  namespace: fitness-ns
+subjects:
+  - kind: Group
+    name: dev-team
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: group-role-dev
+  apiGroup: rbac.authorization.k8s.io
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: group-rolebind-test
+  namespace: fitness-ns
+subjects:
+  - kind: Group
+    name: test-team
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: group-role-test
+  apiGroup: rbac.authorization.k8s.io
