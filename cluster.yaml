@@ -4,5 +4,5 @@ metadata:
   name: raj-cluster-role
 rules:
   - apiGroups: [""]
-    resources: ["nodes","namespace","pods"]
+    resources: ["nodes","namespaces","pods"]
     verbs: ["watch","get","list"]
