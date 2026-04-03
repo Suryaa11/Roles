@@ -1,12 +1,15 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: raj-clusterbind
+  name: surya-cluster-rolebinding
 subjects:
   - kind: User
     name: raj
     apiGroup: rbac.authorization.k8s.io
+  - kind: ServiceAccount
+    name: svc-account
+    namespace: fitness-ns
 roleRef:
   kind: ClusterRole
-  name: raj-cluster-role
+  name: surya-cluster-role
   apiGroup: rbac.authorization.k8s.io
