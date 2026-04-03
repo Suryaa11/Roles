@@ -1,0 +1,8 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: raj-cluster-role
+rules:
+  - apiGroups: [""]
+    resources: ["nodes","namespace","pods"]
+    verbs: ["watch","get","list"]

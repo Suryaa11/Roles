@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: raj-clusterbind
+subjects:
+  - kind: User
+    name: raj
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: raj-cluster-role
+  apiGroup: rbac.authorization.k8s.io
