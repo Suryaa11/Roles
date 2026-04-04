@@ -14,7 +14,7 @@ spec:
         app: photo-mongo-label
     spec:
       affinity:
-        podAffinity:
+        podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
               matchExpressions:
