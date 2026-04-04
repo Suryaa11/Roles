@@ -62,3 +62,16 @@ spec:
     - port: 3002
       targetPort: 3000
   type: NodePort
+
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: photo-secret
+  namespace: photo-ns
+type: Opaque
+stringData:
+  url: mongodb://photo-mongo-service:27017
+  auth_url: mongodb://photo-mongo-service:27017/artgallery
+  feedback_url: mongodb://photo-mongo-service:27017/artgallery
