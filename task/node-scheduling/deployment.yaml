@@ -41,7 +41,7 @@ spec:
               - key: node2
                 operator: In
                 values: 
-                  - high
+                  - top
 
       containers:
         - name: photo-cont
