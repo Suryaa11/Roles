@@ -23,10 +23,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
               - matchExpressions:
-                  - key: worker
+                  - key: node
                     operator: In
                     values: 
-                      - node1
+                      - worker
           preferredDuringSchedulingIgnoredDuringExecution:
           - weight: 5
             preference:
