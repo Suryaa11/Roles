@@ -19,7 +19,7 @@ spec:
           - labelSelector:
               matchExpressions:
               - key: app
-                operator:
+                operator: In
                 values:
                 - photo-label
             topologyKey: topology.kubernetes.io/zone
