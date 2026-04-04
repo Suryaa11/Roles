@@ -4,16 +4,6 @@ metadata:
   name: photo-mongo
   namespace: photo-ns
 spec:
-  affinity:
-    podAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-      - labelSelector:
-          matchExpressions:
-          - key: app
-            operator:
-            values:
-            - photo-label
-        topologyKey: topology.kubernetes.io/zone
   replicas: 1
   selector:
     matchLabels:
@@ -23,6 +13,16 @@ spec:
       labels:
         app: photo-mongo-label
     spec:
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator:
+                values:
+                - photo-label
+            topologyKey: topology.kubernetes.io/zone
       containers:
         - name: photo-mongo-cont
           image: mongo:7.0
