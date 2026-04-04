@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: photo-mongo
+  namespace: photo-ns
+spec:
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+          - key: app
+            operator:
+            values:
+            - photo-label
+        topologyKey: topology.kubernetes.io/zone
+  replicas: 1
+  selector:
+    matchLabels:
+      app: photo-mongo-label
+  template:
+    metadata:
+      labels:
+        app: photo-mongo-label
+    spec:
+      containers:
+        - name: photo-mongo-cont
+          image: mongo:7.0
+          ports:
+            - containerPort: 27017
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: photo-mongo-service
+  namespace: photo-ns
+spec:
+  selector:
+    app: photo-mongo-label
+  ports:
+    - port: 27017
+      targetPort: 27017
+  type: ClusterIP
