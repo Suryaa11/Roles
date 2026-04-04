@@ -25,20 +25,23 @@ spec:
               - matchExpressions:
                   - key: worker
                     operator: In
-                    values: node1
+                    values: 
+                      - node1
           preferredDuringSchedulingIgnoredDuringExecution:
           - weight: 5
             preference:
               matchExpressions:
               - key: kubernetes.io/os
                 operator: In
-                values: linux
+                values: 
+                  - linux
           - weight: 10
             preference:
               matchExpressions:
-              - key: worker
+              - key: node2
                 operator: In
-                values: node1
+                values: 
+                  - high
 
       containers:
         - name: photo-cont
