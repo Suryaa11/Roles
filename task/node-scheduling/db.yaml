@@ -22,7 +22,7 @@ spec:
                 operator: In
                 values:
                 - photo-label
-            topologyKey: topology.kubernetes.io/zone
+            topologyKey: kubernetes.io/hostname
       containers:
         - name: photo-mongo-cont
           image: mongo:7.0
