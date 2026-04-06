@@ -13,16 +13,16 @@ spec:
       labels:
         app: photo-mongo-label
     spec:
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - photo-label
-            topologyKey: kubernetes.io/hostname
+      # affinity:
+      #   podAntiAffinity:
+      #     requiredDuringSchedulingIgnoredDuringExecution:
+      #     - labelSelector:
+      #         matchExpressions:
+      #         - key: app
+      #           operator: In
+      #           values:
+      #           - photo-label
+      #       topologyKey: kubernetes.io/hostname
       containers:
         - name: photo-mongo-cont
           image: mongo:7.0
