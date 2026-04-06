@@ -17,7 +17,7 @@ spec:
     metadata:
       labels:
         app: photo-label
-    # spec:
+    spec:
     #   affinity:
     #     nodeAffinity:
     #       requiredDuringSchedulingIgnoredDuringExecution:
