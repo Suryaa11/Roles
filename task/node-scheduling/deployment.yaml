@@ -17,11 +17,6 @@ spec:
     metadata:
       labels:
         app: photo-label
-    tolerations:
-    - key: "env"
-      operator: "Equal"
-      value: "production"
-      effect: "NoSchedule"
     # spec:
     #   affinity:
     #     nodeAffinity:
@@ -47,7 +42,11 @@ spec:
     #             operator: In
     #             values: 
     #               - top
-
+      tolerations:
+      - key: "env"
+        operator: "Equal"
+        value: "production"
+        effect: "NoSchedule"
       containers:
         - name: photo-cont
           image: suryaa112003/photo-studio:v1.1.0
