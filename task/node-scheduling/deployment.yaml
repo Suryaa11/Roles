@@ -18,9 +18,9 @@ spec:
       labels:
         app: photo-label
     tolerations:
-      - key: "key1"
+      - key: "env"
         operator: "Equal"
-        value: "value1"
+        value: "production"
         effect: "NoSchedule"
     # spec:
     #   affinity:
