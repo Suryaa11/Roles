@@ -17,31 +17,36 @@ spec:
     metadata:
       labels:
         app: photo-label
-    spec:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-              - matchExpressions:
-                  - key: node
-                    operator: In
-                    values: 
-                      - worker
-          preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 5
-            preference:
-              matchExpressions:
-              - key: kubernetes.io/os
-                operator: In
-                values: 
-                  - linux
-          - weight: 10
-            preference:
-              matchExpressions:
-              - key: node2
-                operator: In
-                values: 
-                  - top
+    tolerations:
+      - key: "key1"
+        operator: "Equal"
+        value: "value1"
+        effect: "NoSchedule"
+    # spec:
+    #   affinity:
+    #     nodeAffinity:
+    #       requiredDuringSchedulingIgnoredDuringExecution:
+    #         nodeSelectorTerms:
+    #           - matchExpressions:
+    #               - key: node
+    #                 operator: In
+    #                 values: 
+    #                   - worker
+    #       preferredDuringSchedulingIgnoredDuringExecution:
+    #       - weight: 5
+    #         preference:
+    #           matchExpressions:
+    #           - key: kubernetes.io/os
+    #             operator: In
+    #             values: 
+    #               - linux
+    #       - weight: 10
+    #         preference:
+    #           matchExpressions:
+    #           - key: node2
+    #             operator: In
+    #             values: 
+    #               - top
 
       containers:
         - name: photo-cont
