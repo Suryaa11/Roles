@@ -3,7 +3,6 @@ kind: K8sRequiredResources
 metadata:
   name: require-resource-limits
 spec:
-  enforcementAction: deny
   match:
     kinds:
       - apiGroups: [""]
