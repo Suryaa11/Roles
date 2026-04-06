@@ -4,7 +4,7 @@ metadata:
   name: photo-app-deploy
   namespace: photo-ns
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: photo-label
